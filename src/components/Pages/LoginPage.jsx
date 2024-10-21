@@ -4,11 +4,11 @@ import Header from '../Templates/Header.jsx';
 import Footer from '../Templates/Footer.jsx';
 import Content from '../Templates/Content.jsx';
 
-const LoginPage = () => (
+const LoginPage = ({ headerProps, contentProps, footerProps }) => (
     <MainTemplate
-        header={<Header />}
-        content={<Content />}
-        footer={<Footer />}
+        header={<Header {...headerProps} />}
+        content={<Content {...contentProps} />}
+        footer={<Footer {...footerProps} />}
     />
 );
 

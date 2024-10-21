@@ -1,12 +1,12 @@
 import React from 'react';
-import {Fetcher} from '../util/Fetcher/index.js';
-import {JsonViewer} from '../util/JsonViewer/index.js';
+import { Fetcher } from '../util/Fetcher/index.js';
+import { JsonViewer } from '../util/JsonViewer/index.js';
 
-const ProfileOrganism = () => (
+const ProfileOrganism = ({ apiUrl, path }) => (
     <div>
         <h2>Profile</h2>
-        <Fetcher apiUrl='http://localhost:3000' path='/api/users/'>
-            <JsonViewer/>
+        <Fetcher apiUrl={apiUrl} path={path}>
+            <JsonViewer />
         </Fetcher>
     </div>
 );
