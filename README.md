@@ -1,5 +1,20 @@
 # edu-login-provider
 
+## Login Context
+
+```mermaid
+stateDiagram-v2
+    [*] --> Unauthenticated
+    Unauthenticated --> Authenticating: Enter credentials
+    Authenticating --> Authenticated: Credentials valid
+    Authenticating --> Error: Credentials invalid
+    Authenticated --> Unauthenticated: Logout
+    Error --> Unauthenticated: Retry
+    Error --> Authenticating: Enter credentials again
+```
+
+## Login Process
+
 ```mermaid
 sequenceDiagram
     participant User
