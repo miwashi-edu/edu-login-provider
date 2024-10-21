@@ -1,8 +1,8 @@
 // src/LoginProvider.js
 import React, { createContext, useContext, useState } from 'react';
-import { login, logout, refresh, secureCall } from './authService.js';
+import { login, logout, secureCall } from './authService.js';
 
-export const LoginContext = createContext();
+export const JWTLoginContext = createContext();
 
 export const JWTLoginProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,10 +25,10 @@ export const JWTLoginProvider = ({ children }) => {
     const contextValue = { isLoggedIn, loading, error, login: handleLogin, logout: handleLogout, secureCall };
 
     return (
-        <LoginContext.Provider value={contextValue}>
+        <JWTLoginContext.Provider value={contextValue}>
             {children}
-        </LoginContext.Provider>
+        </JWTLoginContext.Provider>
     );
 };
 
-export const useLogin = () => useContext(LoginContext);
+export const useJWTLogin = () => useContext(JWTLoginContext);

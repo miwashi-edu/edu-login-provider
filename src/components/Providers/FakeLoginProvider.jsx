@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-export const LoginContext = createContext({
+export const FakeLoginContext = createContext({
     isLoggedIn: false,
     loading: false,
     error: null,
@@ -40,10 +40,10 @@ export const FakeLoginProvider = ({ children }) => {
     };
 
     return (
-        <LoginContext.Provider value={contextValue}>
+        <FakeLoginContext.Provider value={contextValue}>
             {children}
-        </LoginContext.Provider>
+        </FakeLoginContext.Provider>
     );
 };
 
-export const useLogin = () => useContext(LoginContext);
+export const useFakeLogin = () => useContext(FakeLoginContext);
