@@ -19,8 +19,8 @@ export default {
 
 export const Default = {
     args: {
-        profileApiUrl: 'http://localhost:3000',
-        profilePath: '/api/users/',
+        apiUrl: 'http://localhost:3000',
+        path: '/api/users/',
         loginProps: {}  // You can define default props for LoginOrganism here if needed
     }
 };

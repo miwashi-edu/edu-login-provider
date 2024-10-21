@@ -3,11 +3,11 @@ import { LoginContext } from '../Providers';
 import LoginOrganism from '../Organisms/LoginOrganism.jsx';
 import ProfileOrganism from '../Organisms/ProfileOrganism.jsx';
 
-const Content = ({ profileApiUrl, profilePath, loginProps }) => {
+const Content = ({ apiUrl, path, loginProps }) => {
     const { isLoggedIn } = useContext(LoginContext);
     return (
         <div>
-            {isLoggedIn ? <ProfileOrganism apiUrl={profileApiUrl} path={profilePath} /> : <LoginOrganism {...loginProps} />}
+            {isLoggedIn ? <ProfileOrganism apiUrl={apiUrl} path={path} /> : <LoginOrganism />}
         </div>
     );
 };

@@ -24,8 +24,20 @@ export const Default = {
     args: {
         headerProps: {},  // Default props for Header
         contentProps: {   // Default props for Content, include any necessary defaults here
-            profileApiUrl: 'http://localhost:3000',
-            profilePath: '/api/users/'
+            apiUrl: 'http://localhost:3000',
+            path: '/api/users/'
+        },
+        footerProps: {}  // Default props for Footer
+    }
+};
+
+
+export const Chatify = {
+    args: {
+        headerProps: {},  // Default props for Header
+        contentProps: {   // Default props for Content, include any necessary defaults here
+            apiUrl: 'https://chatify-api.up.railway.app',
+            path: '/conversations'
         },
         footerProps: {}  // Default props for Footer
     }

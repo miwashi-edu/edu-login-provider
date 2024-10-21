@@ -1,12 +1,11 @@
-import React, { useEffect, useState, Children, cloneElement, useContext } from 'react';
-import { useLogin } from '../../Providers'; // Adjust the import path to your context file
+import React, { useEffect, useState, Children, cloneElement } from 'react';
+import { useLogin } from '../../Providers';
 
 const Fetcher = ({ apiUrl, path, children, interval = 0 }) => {
     const { isLoggedIn, secureCall } = useLogin(); // Access isLoggedIn and secureCall from context
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     useEffect(() => {
         if (!isLoggedIn) {
             setLoading(false);
@@ -19,8 +18,7 @@ const Fetcher = ({ apiUrl, path, children, interval = 0 }) => {
             setLoading(true);
             setError(null);
             try {
-                // Use the secureCall function for API requests
-                const result = await secureCall({ apiUrl }, path);
+                const result = await secureCall(apiUrl, path);
                 setData(result);
             } catch (err) {
                 setError(err.message);

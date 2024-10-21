@@ -49,7 +49,7 @@ export const ChatifyLoginProvider = ({ children }) => {
             });
             const data = await response.json();
             sessionStorage.setItem('csrfToken', csrfToken);
-            sessionStorage.setItem('bearerToken', data.bearerToken);
+            sessionStorage.setItem('bearerToken', data.token);
             setBearerToken(data.bearerToken);
             setIsLoggedIn(true);
         } catch (error) {
@@ -65,7 +65,11 @@ export const ChatifyLoginProvider = ({ children }) => {
     };
 
     const secureCall = async (apiUrl, path, options = {}) => {
+        console.log(apiUrl);
+        console.log(path);
+
         const token = sessionStorage.getItem('bearerToken');
+        console.log(token);
         const headers = new Headers(options.headers || {});
         headers.append('Authorization', `Bearer ${token}`);
 
@@ -77,7 +81,7 @@ export const ChatifyLoginProvider = ({ children }) => {
             return response.json();
         } catch (error) {
             console.error(`Failed to make secure call to ${apiUrl}${path}:`, error);
-            return null;
+            return {error: error.message};
         }
     };
 
