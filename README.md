@@ -7,6 +7,7 @@ sequenceDiagram
     participant LoginProvider as Login Provider
     participant Backend
     participant Fetcher
+    participant Viewer
 
     User->>+Login: Enter credentials
     Login->>+LoginProvider: login(username, password)
@@ -24,6 +25,7 @@ sequenceDiagram
     Backend->>Backend: Refresh AccessToken if necessary
     Backend-->>-LoginProvider: Response (data)
     LoginProvider-->>-Fetcher: Update state (data)
-    Fetcher-->>User: Display data
+    Fetcher->>+Viewer: Pass data
+    Viewer-->>-User: Display data
 ```
 
